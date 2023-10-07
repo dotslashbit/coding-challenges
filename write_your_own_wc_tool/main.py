@@ -27,22 +27,36 @@ def get_number_of_characters(file):
     number_of_characters = len(data)
     return number_of_characters
 
+def get_all_stats(file):
+    size_in_bytes = get_size_in_bytes(file)
+    number_of_lines = get_number_of_lines(file)
+    number_of_words = get_number_of_words(file)
+    return size_in_bytes, number_of_lines, number_of_words
+
+
+
 
 if lst[0] == 'ccwc':
-    if lst[1] == '-c':
-        file = lst[2]
-        size = get_size_in_bytes(file)
-        print(size)
-    elif lst[1] == '-l':
-        file = lst[2]
-        number_of_lines = get_number_of_lines(file)
-        print(number_of_lines)
-    elif lst[1] == '-w':
-        file = lst[2]
-        number_of_words = get_number_of_words(file)
-        print(number_of_words)
-    elif lst[1] == '-m':
-        file = lst[2]
-        number_of_characters = get_number_of_characters(file)
-        print(number_of_characters)
+    if len(lst) == 3:
+        if lst[1] == '-c':
+            file = lst[2]
+            size = get_size_in_bytes(file)
+            print(size)
+        elif lst[1] == '-l':
+            file = lst[2]
+            number_of_lines = get_number_of_lines(file)
+            print(number_of_lines)
+        elif lst[1] == '-w':
+            file = lst[2]
+            number_of_words = get_number_of_words(file)
+            print(number_of_words)
+        elif lst[1] == '-m':
+            file = lst[2]
+            number_of_characters = get_number_of_characters(file)
+            print(number_of_characters)
+    elif len(lst) == 2:
+        file = lst[1]
+        size, number_of_lines, number_of_words = get_all_stats(file)
+        print(f'{number_of_lines}\t{number_of_words}\t{size}')
+    
     
