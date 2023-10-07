@@ -1,0 +1,1 @@
+This repository serves as a collection of my solutions to coding challenges from [coding challenges](https://codingchallenges.fyi) by [John Crickett](https://github.com/JohnCrickett). Each challenge is organized is in its respective folder, containing all the code files and any additional attachments or resources required for that challenge 
