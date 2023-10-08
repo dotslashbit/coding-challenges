@@ -58,5 +58,23 @@ if lst[0] == 'ccwc':
         file = lst[1]
         size, number_of_lines, number_of_words = get_all_stats(file)
         print(f'{number_of_lines}\t{number_of_words}\t{size}')
-    
+
+elif len(lst) == 5 and lst[0] == 'cat' and lst[2] == '|' and lst[3] == 'ccwc':
+    file = lst[1]
+    if lst[4] == '-c':
+        size = get_size_in_bytes(file)
+        print(size)
+    elif lst[4] == '-l':
+        number_of_lines = get_number_of_lines(file)
+        print(number_of_lines)
+    elif lst[4] == '-w':
+        number_of_words = get_number_of_words(file)
+        print(number_of_words)
+    elif lst[4] == '-m':
+        number_of_characters = get_number_of_characters(file)
+        print(number_of_characters)
+
+
+
+
     
