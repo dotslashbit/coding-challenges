@@ -1,37 +1,57 @@
 import os
-
+import sys
 # taking input
 lst = input().split()
 
 # function to get the size of file in bytes
 def get_size_in_bytes(file):
-    size = os.path.getsize(file)
-    return size
+    try:
+        f = open(file, 'r')
+        size = os.path.getsize(f)
+        f.close()
+        return size
+    except FileNotFoundError:
+        print('There is no such file or directory')
+        sys.exit()
 
 # function to get the total number of lines
 def get_number_of_lines(file):
-    f = open(file, 'r')
-    number_of_lines = len(f.readlines())
-    f.close()
-    return number_of_lines
+    try:
+        f = open(file, 'r')
+        number_of_lines = len(f.readlines())
+        f.close()
+
+        return number_of_lines
+    except FileNotFoundError:
+        print('There is no such file or directory')
+        sys.exit()
+
 
 # function to get the total number of words
 def get_number_of_words(file):
-    f = open(file, 'r')
-    number_of_words = 0
-    for line in f:
-        words = line.split()
-        number_of_words += len(words)
-    f.close()
-    return number_of_words
+    try:
+        f = open(file, 'r')
+        number_of_words = 0
+        for line in f:
+            words = line.split()
+            number_of_words += len(words)
+        f.close()
+        return number_of_words
+    except FileNotFoundError:
+        print('There is no such file or directory')
+        sys.exit()
 
 # function to get the total number of characters
 def get_number_of_characters(file):
-    f = open(file, 'r')
-    data = f.read()
-    f.close()
-    number_of_characters = len(data)
-    return number_of_characters
+    try:
+        f = open(file, 'r')
+        data = f.read()
+        f.close()
+        number_of_characters = len(data)
+        return number_of_characters
+    except FileNotFoundError:
+        print('There is no such file or directory')
+        sys.exit()
 
 # function to get all the statistics about the file
 def get_all_stats(file):
