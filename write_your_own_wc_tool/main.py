@@ -46,21 +46,20 @@ def get_all_stats(file):
 if lst[0] == 'ccwc':
     # checking the length of the input, just to know if input is valid or not using length
     if len(lst) == 3:
+
+        # storing the file name
+        file = lst[2]
         # handling all the different operations
         if lst[1] == '-c':
-            file = lst[2]
             size = get_size_in_bytes(file)
             print(size)
         elif lst[1] == '-l':
-            file = lst[2]
             number_of_lines = get_number_of_lines(file)
             print(number_of_lines)
         elif lst[1] == '-w':
-            file = lst[2]
             number_of_words = get_number_of_words(file)
             print(number_of_words)
         elif lst[1] == '-m':
-            file = lst[2]
             number_of_characters = get_number_of_characters(file)
             print(number_of_characters)
     # codition for the case, where operation is not mentioned
