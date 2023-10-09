@@ -5,7 +5,11 @@ import sys
 file = input()
 
 # reading the file
-f = open(file, 'r')
+try:
+    f = open(file, 'r')
+except FileNotFoundError:
+    print('File does not exists!')
+    sys.exit()
 
 # stripping the content of the file, so that there's no extra spaces on either end of the content
 lines = f.read().strip()
