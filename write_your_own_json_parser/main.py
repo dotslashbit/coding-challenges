@@ -2,17 +2,21 @@
 import sys
 
 # taking the file as input
-file = input()
+def input_processing():
+    file = input()
 
-# reading the file
-try:
-    f = open(file, 'r')
-except FileNotFoundError:
-    print('File does not exists!')
-    sys.exit()
+    # reading the file
+    try:
+        f = open(file, 'r')
+    except FileNotFoundError:
+        print('File does not exists!')
+        sys.exit()
 
-# stripping the content of the file, so that there's no extra spaces on either end of the content
-lines = f.read().strip()
+    # stripping the content of the file, so that there's no extra spaces on either end of the content
+    lines = f.read().strip()
+    return lines
+
+lines = input_processing()
 
 
 # dictionary to store all the key value pairs
