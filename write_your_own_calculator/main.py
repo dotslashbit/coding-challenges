@@ -1,11 +1,27 @@
 def get_input():
-    # take the expression as input from the user
+    """
+    Takes the expression as input from the user.
+
+    Returns:
+        A string representing the expression.
+    """
+
     s = input()
     return s
 
 
 def apply_operation(operators, values):
-    # Pop an operator and two values from the stacks, perform the operation, and push the result back
+    """
+    Pops an operator and two values from the stacks, performs the operation, and pushes the result back.
+
+    Args:
+        operators: A stack of operators.
+        values: A stack of values.
+
+    Returns:
+        None.
+    """
+
     op = operators.pop()
     right = values.pop()
     left = values.pop()
@@ -18,18 +34,43 @@ def apply_operation(operators, values):
         values.append(left * right)
     elif op == '/':
         values.append(left / right)
+    elif op == '^':
+        values.append(left ** right)
+
 
 def precedence(op):
-    # Define precedence levels for operators
+    """
+    Defines precedence levels for operators.
+
+    Args:
+        op: A string representing the operator.
+
+    Returns:
+        An integer representing the precedence level of the operator.
+    """
+
     if op in ['+', '-']:
         return 1
     elif op in ['*', '/']:
         return 2
+    elif op in ['^']:
+        return 3
     return 0
 
+
 def evaluate(expression):
-    values = []       # Stack to hold operands
-    operators = []    # Stack to hold operators
+    """
+    Evaluates the given expression.
+
+    Args:
+        expression: A string representing the expression.
+
+    Returns:
+        The result of evaluating the expression.
+    """
+
+    values = []    # Stack to hold operands
+    operators = []  # Stack to hold operators
 
     i = 0
     while i < len(expression):
@@ -64,9 +105,17 @@ def evaluate(expression):
     return values[0]  # The final result is the only value remaining in the operand stack
 
 
-
-
 def calculate(expression):
+    """
+    Calculates the given expression.
+
+    Args:
+        expression: A string representing the expression.
+
+    Returns:
+        The result of calculating the expression.
+    """
+
     try:
         return evaluate(expression)  # Call evaluate function to get the final result
     except:
